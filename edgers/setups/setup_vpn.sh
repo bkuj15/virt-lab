@@ -4,8 +4,8 @@
 BORDER=">>>>>>>>>>>>>>"
 printf "$BORDER Installing openvpn and EasyRSA $BORDER \n\n"
 
-sudo apt-get update
-sudo apt-get install openvpn easy-rsa
+sudo apt-get update -y
+sudo apt-get install openvpn easy-rsa -y
 
 
 printf "$BORDER Setting default openvpn vars $BORDER \n\n"
