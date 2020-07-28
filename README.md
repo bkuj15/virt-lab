@@ -42,3 +42,6 @@ VM lab environment for doing network stuff
 
 1. Stop all the VMs: `./stop_all.sh`
 2. Destroii all VMs in our path: `./destroy_all.sh`
+
+
+![alt text](https://github.com/bkuj15/virt-lab/blob/master/testo.jpg?raw=true)
