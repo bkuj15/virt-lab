@@ -1,6 +1,8 @@
 # virt-lab
 VM lab environment for doing network stuff
 
+![alt text](https://github.com/bkuj15/virt-lab/blob/master/testo.jpg?raw=true)
+
 
 ### Requirements
 
@@ -44,4 +46,3 @@ VM lab environment for doing network stuff
 2. Destroii all VMs in our path: `./destroy_all.sh`
 
 
-![alt text](https://github.com/bkuj15/virt-lab/blob/master/testo.jpg?raw=true)
