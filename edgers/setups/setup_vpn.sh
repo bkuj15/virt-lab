@@ -61,15 +61,15 @@ sudo sed -i "s/;tls-auth ta.key 0/tls-auth ta.key 0/g"  /etc/openvpn/server.conf
 sudo sed -i "s/;cipher AES-128-CBC/cipher AES-128-CBC/g"  /etc/openvpn/server.conf
 
 sudo sed -i "s/;user nobody/user nobody/g"  /etc/openvpn/server.conf
-sudo sed -i "s/;group nobody/grpup nobody/g"  /etc/openvpn/server.conf
+sudo sed -i "s/;group nogroup/group nogroup/g"  /etc/openvpn/server.conf
 
-sudo sed -i "s/;push \"redirect-gateway def1 bypass-dhcp\"/push \"redirect-gateway def1 bypass-dhcp\"/g"  /etc/openvpn/server.conf
-sudo sed -i "s/;push \"dhcp-option DNS 208.67.222.222\"/push \"dhcp-option DNS 208.67.222.222\"/g"  /etc/openvpn/server.conf
-sudo sed -i "s/;push \"dhcp-option DNS 208.67.220.220\"/push \"dhcp-option DNS 208.67.220.220\"/g"  /etc/openvpn/server.conf
+#sudo sed -i "s/;push \"redirect-gateway def1 bypass-dhcp\"/push \"redirect-gateway def1 bypass-dhcp\"/g"  /etc/openvpn/server.conf
+#sudo sed -i "s/;push \"dhcp-option DNS 208.67.222.222\"/push \"dhcp-option DNS 208.67.222.222\"/g"  /etc/openvpn/server.conf
+#sudo sed -i "s/;push \"dhcp-option DNS 208.67.220.220\"/push \"dhcp-option DNS 208.67.220.220\"/g"  /etc/openvpn/server.conf
 
-cat >> /etc/openvpn/server.conf << EOF
+sudo bash -c 'cat >> /etc/openvpn/server.conf << EOF
 auth SHA256
-EOF
+EOF'
 
 sudo sed -i "s/port 1194/port 443/g"  /etc/openvpn/server.conf
 sudo sed -i "s/proto udp/proto tcp/g"  /etc/openvpn/server.conf
@@ -81,7 +81,7 @@ sudo sed -i "s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g"  /etc/sysctl.conf
 sudo sysctl -p
 
 
-cat >> /etc/ufw/before.rules << EOF
+sudo bash -c 'cat >> /etc/ufw/before.rules << EOF
 # START OPENVPN RULES
 # NAT table rules
 *nat
@@ -90,7 +90,7 @@ cat >> /etc/ufw/before.rules << EOF
 -A POSTROUTING -s 10.8.0.0/8 -o enp0s8 -j MASQUERADE
 COMMIT
 # END OPENVPN RULES
-EOF
+EOF'
 
 
 sudo sed -i "s/DEFAULT_FORWARD_POLICY=\"DROP\"/DEFAULT_FORWARD_POLICY=\"ACCEPT\"/g" /etc/default/ufw

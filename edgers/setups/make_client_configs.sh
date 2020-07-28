@@ -12,7 +12,7 @@ chmod 700 ~/client-configs/files
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf ~/client-configs/base.conf
 
 
-sed -i "s/server_IP_address 1194/192.168.2.2 443/g" ~/client-configs/base.conf
+sed -i "s/my-server-1 1194/192.168.2.2 443/g" ~/client-configs/base.conf
 sed -i "s/proto udp/proto tcp/g" ~/client-configs/base.conf
 
 sed -i "s/;user nobody/user nobody/g" ~/client-configs/base.conf
