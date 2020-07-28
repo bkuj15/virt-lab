@@ -18,7 +18,7 @@ VM lab environment for doing network stuff
 4. Restart all the machines to make network changes take effect: `./stop_all.sh` then `./start_all.sh`
 5. Make sure edge nodes can ping eachother: `ping 192.168.3.2`
 
-## Build VPN server
+#### Build VPN server
 
 1. Copy setup scripts to vpn server VM: `cd virt-lab/edgers/vpn-server && ./copy_setup.sh`
 2. Ssh to vpn server VM: `cd virt-lab/edgers/vpn-server && vagrant ssh`
@@ -26,7 +26,7 @@ VM lab environment for doing network stuff
 * Keep hitting `Enter` or `y` to leave all default values
 4. Run script to generate client config file: `./make_client_configs.sh`
 
-## Connect client to VPN server
+#### Connect client to VPN server
 
 1. Copy `client1` config file from vpn server to client node
 * cd to vpn-server vagrant folder: `cd virt-lab/edgers/vpn-server`
