@@ -17,6 +17,10 @@ echo "Destroying router 3.."
 cd ../router3
 vagrant destroy -f
 
+echo "Destroying gateway.."
+cd ../gateway
+vagrant destroy -f
+
 cd ../..
 
 echo "Destroying client vm.."

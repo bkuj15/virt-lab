@@ -29,6 +29,13 @@ vagrant up
 
 echo "$BORDER Finished booting router 3"
 
+printf "\n$BORDER Booting gateway node\n"
+
+cd ../gateway
+vagrant up
+
+echo "$BORDER Finished booting gateway"
+
 cd ../..
 sleep 2
 

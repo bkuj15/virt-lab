@@ -39,6 +39,13 @@ if [ $NUM_RUNNING -eq 6 ]
     vboxmanage startvm vague-router3 --type headless
     echo "$BORDER Finished booting router 3"
 
+    printf "\n$BORDER Booting gateway \n"
+
+    cd ../gateway
+    #vagrant resume
+    vboxmanage startvm vague-gateway --type headless
+    printf "$BORDER Finished booting gateway\n\n"
+
     cd ../..
     sleep 1
 
