@@ -1,6 +1,10 @@
 #!/bin/bash
 #
 
+OLD_NAME=vague-router
+HNAME=gateway
+
+
 apt-get update
 
 sed -i "s/#VAGRANT-END/up route add -net 192.168.0.0\/16 gw 192.168.1.254 dev enp0s8/g" /etc/network/interfaces
@@ -17,8 +21,6 @@ echo "net.ipv4.conf.enp0s8.rp_filter=0" >> /etc/sysctl.conf
 echo "net.ipv4.conf.enp0s9.rp_filter=0" >> /etc/sysctl.conf
 
 sysctl -p
-
-echo "Setting up iptables rules for NAT stuff.."
 
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
@@ -44,11 +46,9 @@ echo Saving the current iptables config..
 
 sudo netfilter-persistent save
 
-OLD_NAME=vague-router
-HNAME=gateway
-
 sed -i "s/$OLD_NAME/$HNAME/g" /etc/hostname
 sed -i "s/$OLD_NAME/$HNAME/g" /etc/hosts
 hostname $HNAME
+
 
 exit

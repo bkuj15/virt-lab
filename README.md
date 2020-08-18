@@ -1,8 +1,6 @@
 # virt-lab
 VM lab environment for doing network stuff
 
-![alt text](https://github.com/bkuj15/virt-lab/blob/master/testo.jpg?raw=true)
-
 
 ### Requirements
 
@@ -20,9 +18,12 @@ VM lab environment for doing network stuff
 4. Restart all the machines to make network changes take effect: `./stop_all.sh` then `./start_all.sh`
 5. Make sure edge nodes can ping eachother: `ping 192.168.3.2`
 
+![picture](diagrams/virtlab-setup.jpg)
+
+
 #### Build VPN server
 
-1. Copy setup scripts to vpn server VM: `cd virt-lab/edgers/vpn-server && ./copy_setup.sh`
+1. Copy setup scripts to vpn server VM: `cd virt-lab/edgers/vpn-server && ./copy_vpn_setup.sh`
 2. Ssh to vpn server VM: `cd virt-lab/edgers/vpn-server && vagrant ssh`
 3. Run interactive script to setup vm as a OpenVPN server: `./setup_vpn.sh`
 * Keep hitting `Enter` or `y` to leave all default values
@@ -30,14 +31,28 @@ VM lab environment for doing network stuff
 
 #### Connect client to VPN server
 
-1. Copy `client1` config file from vpn server to client node
-* cd to vpn-server vagrant folder: `cd virt-lab/edgers/vpn-server`
-* copy config file from VM to host: `scp -i .vagrant/machines/default/virtualbox/private_key -P 22112 vagrant@localhost:~/client-configs/files/* .`
-* move config file to client vagrant folder: `mv ./client1.ovpn ../client && cd ../client`
-* copy ovpn config file to client VM: `scp -i .vagrant/machines/default/virtualbox/private_key -P 22111 client1.ovpn vagrant@localhost:~`
+1. Run script to copy `client1` config file from vpn server to client vm: `cd virt-lab/edgers/client && ./copy_client_config.sh`
+2. Ssh to the client VM: `cd virt-lab/edgers/client && vagrant ssh`
 2. Install OpenVPN on the client vm: `sudo apt install openvpn -y`
-3. Connect to the local vpn server: `sudo openvpn --client --config client1.ovpn`
+3. Connect to the local vpn server: `sudo openvpn --client --config client1.ovpn &`
 
+#### Setup DNS server on "web-server" node
+
+1. Run script to copy dns setup scripts to vm: `cd virt-lab/edgers/web-server && ./copy_dns_setup.sh`
+2. Ssh to server vm: `cd virt-lab/edgers/web-server && vagrant ssh`
+3. Run docker install script: `./install_docker.sh`
+4. Start the dns bind docker container: `./start_dns.sh`
+5. Check to make sure its alivee: `docker ps` or `docker logs bind`
+
+
+#### Setup attack router for dns inject stuff
+
+1. Start script to copy attacker setup to vm: `cd virt-lab/routers/router1 && ./copy_attacker_setup.sh`
+2. Ssh to router vm: `cd virt-lab/routers/router1 && vagrant ssh`
+3. Run the setup script to install spoofing libraries and repo: `./setup_attacker.sh`
+4. Change to dns attack folder: `cd VeepExploit/other-end/dnuss/full_scan`
+5. Compile the attack script: `make`
+6. Run the attack: `sudo ./uud_send <dns_server_ip> <src_port (53)> <vpn_server_ip> <start_port> <end_port>`
 
 
 ### Teardown

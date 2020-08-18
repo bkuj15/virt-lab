@@ -68,7 +68,7 @@ if [ $NUM_RUNNING -eq 6 ]
 
     cd ../vpn-server
     #vagrant resume
-    vboxmanage startvm vague-vpn-server #--type headless
+    vboxmanage startvm vague-vpn-server --type headless
 
     echo "$BORDER Finished booting vpn server.."
 

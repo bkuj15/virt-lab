@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+echo "Setting up iptables rules for NAT stuff.."
+
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 sudo apt-get install iptables-persistent -y
