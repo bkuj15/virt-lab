@@ -29,6 +29,13 @@ vagrant up
 
 echo "$BORDER Finished booting router 3"
 
+printf "\n$BORDER Booting router 4 \n"
+
+cd ../router4
+vagrant up
+
+echo "$BORDER Finished booting router 4"
+
 printf "\n$BORDER Booting gateway node\n"
 
 cd ../gateway
@@ -52,6 +59,13 @@ cd edgers/client
 vagrant up
 
 echo "$BORDER Finished booting client.."
+
+printf "\n$BORDER Booting the public client \n"
+
+cd ../pub-client
+vagrant up
+
+echo "$BORDER Finished booting pub client.."
 
 
 printf "\n$BORDER Booting the vpn server \n"

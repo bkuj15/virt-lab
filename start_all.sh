@@ -39,6 +39,13 @@ if [ $NUM_RUNNING -eq 6 ]
     vboxmanage startvm vague-router3 --type headless
     echo "$BORDER Finished booting router 3"
 
+    printf "\n$BORDER Booting router 4 \n"
+
+    cd ../router4
+    #vagrant resume
+    vboxmanage startvm vague-router4 --type headless
+    echo "$BORDER Finished booting router 4"
+
     printf "\n$BORDER Booting gateway \n"
 
     cd ../gateway
@@ -62,6 +69,13 @@ if [ $NUM_RUNNING -eq 6 ]
     #vagrant resume
     vboxmanage startvm vague-client --type headless
     echo "$BORDER Finished booting client.."
+
+    printf "\n$BORDER Booting the pub client \n"
+
+    cd ../pub-client
+    #vagrant resume
+    vboxmanage startvm vague-pub-client --type headless
+    echo "$BORDER Finished booting pub client.."
 
 
     printf "\n$BORDER Booting the vpn server \n"

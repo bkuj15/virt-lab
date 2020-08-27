@@ -24,20 +24,20 @@ interface enp0s10
 interface lo
 router ospf
  passive-interface enp0s8
- network 192.168.3.0/24 area 0.0.0.0
+ network 192.168.4.0/24 area 0.0.0.0
+ network 192.168.101.0/24 area 0.0.0.0
  network 192.168.103.0/24 area 0.0.0.0
- network 192.168.102.0/24 area 0.0.0.0
 line vty
 EOF
 cat >> /etc/quagga/zebra.conf << EOF
 interface enp0s8
- ip address 192.168.3.254/24
+ ip address 192.168.4.254/24
  ipv6 nd suppress-ra
 interface enp0s9
- ip address 192.168.103.1/24
+ ip address 192.168.101.1/24
  ipv6 nd suppress-ra
 interface enp0s10
- ip address 192.168.102.1/24
+ ip address 192.168.103.2/24
  ipv6 nd suppress-ra
 interface lo
 ip forwarding

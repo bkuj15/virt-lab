@@ -17,6 +17,10 @@ echo "Destroying router 3.."
 cd ../router3
 vagrant destroy -f
 
+echo "Destroying router 4.."
+cd ../router4
+vagrant destroy -f
+
 echo "Destroying gateway.."
 cd ../gateway
 vagrant destroy -f
@@ -25,6 +29,10 @@ cd ../..
 
 echo "Destroying client vm.."
 cd edgers/client
+vagrant destroy -f
+
+echo "Destroying public client vm.."
+cd ../pub-client
 vagrant destroy -f
 
 echo "Destroying vpn server vm.."
