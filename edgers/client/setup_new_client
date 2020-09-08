@@ -1,0 +1,25 @@
+3  sudo apt-update -y
+    4  sudo apt update -y
+    5  clear
+    6  ls
+    7  sudo apt install openvpn -y
+    8  clear
+    9  ls
+   10  cat client1.ovpn 
+   11  clear
+   12  ls
+   13  cat client1.ovpn | grep udp
+   14  ping 192.168.2.2
+   15  sudo ip route add 192.168.0.0/16 via 192.168.2.254 dev enp0s8
+   16  sudo ip route add 192.168.0.0/16 via 192.168.1.254 dev enp0s8
+   17  sudo ip route add 172.16.0.0/16 via 172.16.4.254 dev enp0s8
+   18  clear
+   19  ls
+   20  ping 192.168.3.2
+   21  ifconfig
+   22  ip addr
+   23  ip route ls
+   24  sudo ip route add 192.168.0.0/16 via 172.16.4.254 dev enp0s8
+   25  ping 192.168.3.2
+   26  ping 192.168.2.2
+   27  sudo openvpn --client --config client1.ovpn

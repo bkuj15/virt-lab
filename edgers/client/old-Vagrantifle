@@ -1,19 +1,27 @@
 # -*- mode: ruby -*-
 
+# vi: set ft=ruby :
+
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/focal64"
+
+  config.vm.box = "ubuntu/xenial64"
   config.vm.hostname = "vague-client"
 
   config.vm.network "forwarded_port", guest: 22, host: 22111, id: 'ssh'
   config.ssh.insert_key = true
 
   config.vm.network "private_network", ip: "172.16.4.2", virtualbox__intnet: "intnet-4"
-
   #
   config.vm.provider "virtualbox" do |vb|
     vb.name = "vague-client"
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
   end
+  #
 
-  #config.vm.provision :shell, path: "setup_net.sh"
+  config.vm.provision :shell, path: "setup_net.sh"
 
 end

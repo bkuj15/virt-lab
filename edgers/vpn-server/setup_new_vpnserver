@@ -1,0 +1,26 @@
+sudo apt update -y
+    2  git -v
+    3  cd ~
+    4  git clone https://github.com/Nyr/openvpn-install.git
+    5  cd openvpn-install/p
+    6  cd openvpn-install/
+    7  ls -l
+    8  chmod +x openvpn-install.sh 
+    9  sudo ./openvpn-install.sh 
+   10  sudo cp /root/client1.ovpn .
+   11  clear
+   12  ls
+   13  sudo chown vagrant client1.ovpn 
+   14  chmod 644 client1.ovpn 
+   15  clear
+   16  ls
+   17  ping 8.8.8.8
+   18  ls
+   19  cd ..
+   20  ls
+   21  mv openvpn-install/client1.ovpn .
+   22  ls
+   23  sudo ip route add 192.168.0.0/16 via 192.168.2.254 dev enp0s8
+   24  ping 192.168.3.2
+   25  ping 8.8.8.8
+
