@@ -27,14 +27,17 @@ VM lab environment for doing network stuff
 2. Ssh to vpn server VM: `cd virt-lab/edgers/vpn-server && vagrant ssh`
 3. Run interactive script to setup vm as a OpenVPN server: `./setup_vpn.sh`
 * Keep hitting `Enter` or `y` to leave all default values
-4. Run script to generate client config file: `./make_client_configs.sh`
+4. Run script to make base config and generate client1 config file: `./make_client_configs.sh`
+5. Run script to generate client2 ovpn config file: `./sec_config.sh`
 
 #### Connect client to VPN server
 
 1. Run script to copy `client1` config file from vpn server to client vm: `cd virt-lab/edgers/client && ./copy_client_config.sh`
 2. Ssh to the client VM: `cd virt-lab/edgers/client && vagrant ssh`
-2. Install OpenVPN on the client vm: `sudo apt install openvpn -y`
-3. Connect to the local vpn server: `sudo openvpn --client --config client1.ovpn &`
+3. Install OpenVPN on the client vm: `sudo apt install openvpn -y`
+4. Connect to the local vpn server: `sudo openvpn --client --config client1.ovpn &`
+
+
 
 #### Setup DNS server on "web-server" node
 
