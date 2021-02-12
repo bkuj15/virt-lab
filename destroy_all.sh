@@ -30,3 +30,11 @@ vagrant destroy -f
 echo "Destroying web server vm.."
 cd ../web-server
 vagrant destroy -f
+
+echo "Removing old vagrant files"
+cd ../..
+rm -r edgers/*/.vagrant
+rm -r routers/*/.vagrant
+
+rm edgers/*/*console.log
+rm routers/*/*console.log
