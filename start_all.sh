@@ -57,13 +57,13 @@ if [ $NUM_RUNNING -eq 6 ]
     echo "$BORDER Finished booting client.."
 
 
-    printf "\n$BORDER Booting the vpn server \n"
+    printf "\n$BORDER Booting the attacker \n"
 
-    cd ../vpn-server
+    cd ../attacker
     #vagrant resume
-    vboxmanage startvm vague-vpn-server #--type headless
+    vboxmanage startvm vague-attacker #--type headless
 
-    echo "$BORDER Finished booting vpn server.."
+    echo "$BORDER Finished booting attacker.."
 
 
     printf "\n$BORDER Booting the web server \n"

@@ -23,8 +23,8 @@ echo "Destroying client vm.."
 cd edgers/client
 vagrant destroy -f
 
-echo "Destroying vpn server vm.."
-cd ../vpn-server
+echo "Destroying attacker vm.."
+cd ../attacker
 vagrant destroy -f
 
 echo "Destroying web server vm.."

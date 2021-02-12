@@ -2,8 +2,8 @@
 #
 
 
-OLD_NAME=vague-client
-HNAME=vpnserver
+OLD_NAME=vague-attacker
+HNAME=attacker
 
 sed -i "s/$OLD_NAME/$HNAME/g" /etc/hostname
 sed -i "s/$OLD_NAME/$HNAME/g" /etc/hosts

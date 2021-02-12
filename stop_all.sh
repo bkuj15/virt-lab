@@ -23,8 +23,8 @@ echo "Stopping client vm.."
 cd edgers/client
 vagrant halt
 
-echo "Stopping vpn server vm.."
-cd ../vpn-server
+echo "Stopping attacker vm.."
+cd ../attacker
 vagrant halt
 
 echo "Stopping web server vm.."

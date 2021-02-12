@@ -47,12 +47,12 @@ vagrant up
 echo "$BORDER Finished booting client.."
 
 
-printf "\n$BORDER Booting the vpn server \n"
+printf "\n$BORDER Booting the attacker \n"
 
-cd ../vpn-server
+cd ../attacker
 vagrant up
 
-echo "$BORDER Finished booting vpn server.."
+echo "$BORDER Finished booting attacker.."
 
 
 printf "\n$BORDER Booting the web server \n"
