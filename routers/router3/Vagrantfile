@@ -6,12 +6,12 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 22, host: 22116, id: 'ssh'
   config.ssh.insert_key = true
 
-  config.vm.network "private_network", ip: "192.168.16.254", virtualbox__intnet: "intnet-3", netmask: "255.255.252.0"
+  config.vm.network "private_network", ip: "192.168.64.254", virtualbox__intnet: "intnet-3", netmask: "255.255.224.0"
   #config.vm.network "private_network", ip: "192.168.101.1", virtualbox__intnet: "intnet-101"
   #config.vm.network "private_network", ip: "192.168.102.1", virtualbox__intnet: "intnet-102"
 
-  config.vm.network "private_network", ip: "192.168.24.1", virtualbox__intnet: "intnet-101", netmask: "255.255.252.0"
-  config.vm.network "private_network", ip: "192.168.28.1", virtualbox__intnet: "intnet-102", netmask: "255.255.252.0"
+  config.vm.network "private_network", ip: "192.168.128.1", virtualbox__intnet: "intnet-101", netmask: "255.255.224.0"
+  config.vm.network "private_network", ip: "192.168.160.1", virtualbox__intnet: "intnet-102", netmask: "255.255.224.0"
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = "vague-router3"

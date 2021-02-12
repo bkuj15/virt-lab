@@ -36,5 +36,5 @@ cd ../..
 rm -r edgers/*/.vagrant
 rm -r routers/*/.vagrant
 
-rm edgers/*/*console.log
-rm routers/*/*console.log
+rm ./edgers/*/*console.log
+rm ./routers/*/*console.log

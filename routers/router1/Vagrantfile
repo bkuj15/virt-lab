@@ -6,10 +6,10 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 22, host: 22114, id: 'ssh'
   config.ssh.insert_key = true
 
-  config.vm.network "private_network", ip: "192.168.8.254", virtualbox__intnet: "intnet-1", netmask: "255.255.252.0"
+  config.vm.network "private_network", ip: "192.168.1.254", virtualbox__intnet: "intnet-1", netmask: "255.255.224.0"
 
-  config.vm.network "private_network", ip: "192.168.20.1", virtualbox__intnet: "intnet-100", netmask: "255.255.252.0"
-  config.vm.network "private_network", ip: "192.168.24.2", virtualbox__intnet: "intnet-101", netmask: "255.255.252.0"
+  config.vm.network "private_network", ip: "192.168.96.1", virtualbox__intnet: "intnet-100", netmask: "255.255.224.0"
+  config.vm.network "private_network", ip: "192.168.128.2", virtualbox__intnet: "intnet-101", netmask: "255.255.224.0"
   
   #config.vm.network "private_network", ip: "192.168.100.1", virtualbox__intnet: "intnet-100"
   #config.vm.network "private_network", ip: "192.168.101.2", virtualbox__intnet: "intnet-101"
