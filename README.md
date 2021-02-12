@@ -1,7 +1,7 @@
 # virt-lab
 VM lab environment for doing network stuff
 
-![alt text](https://github.com/bkuj15/virt-lab/blob/master/testo.jpg?raw=true)
+![alt text](https://github.com/bkuj15/virt-lab/blob/no-vpn/diagrams/virtlab-setup.jpg?raw=true)
 
 
 ### Requirements
